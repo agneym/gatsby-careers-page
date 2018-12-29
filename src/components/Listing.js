@@ -7,7 +7,7 @@ import Accordion from './Accordion';
 const Container = styled.section`
   background-color: #fcfcfc;
   min-height: 60vh;
-  padding: 3rem;
+  padding: 3rem 3rem 8rem;
 `;
 
 const Title = styled.h1`
