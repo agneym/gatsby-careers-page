@@ -2,12 +2,12 @@ import React from 'react';
 
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import GraphicsEl from '../images/graphics.svg';
+import Intro from '../components/Intro';
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `aviato`, `careers`]} />
-    <GraphicsEl />
+    <Intro />
   </Layout>
 )
 
