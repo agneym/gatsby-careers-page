@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ location, children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -31,7 +31,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header />
+        <Header logo={!!location} />
         {children}
         <footer>
           © 2018, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
@@ -42,7 +42,12 @@ const Layout = ({ children }) => (
   />
 );
 
+Layout.defaultProps = {
+  location: null,
+};
+
 Layout.propTypes = {
+  location: PropTypes.any,
   children: PropTypes.node.isRequired,
 };
 

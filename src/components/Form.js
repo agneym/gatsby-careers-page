@@ -78,7 +78,7 @@ const Form = () => (
       </FormField>
       <FormField>
         <label htmlFor="email">Email</label>
-        <Input name="email" for="email" type="email" autoComplete="email" />
+        <Input name="email" id="email" type="email" autoComplete="email" />
       </FormField>
       <FormField>
         <label htmlFor="notice-period">Notice Period</label>

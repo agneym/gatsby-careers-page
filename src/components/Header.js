@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import NakedList from '../utils/NakedList';
+import Logo from '../images/logo.svg';
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: flex-end;
+  justify-content: ${props => (props.logo ? 'space-between' : 'flex-end')};
   align-items: center;
   padding: 0 4rem;
   height: 6rem;
@@ -22,8 +24,13 @@ const NavItems = styled.li`
   margin: 0 1rem;
 `;
 
-const Header = () => (
-  <Nav>
+const StyledLogo = styled(Logo)`
+  height: 2rem;
+`;
+
+const Header = ({ logo }) => (
+  <Nav logo={logo}>
+    {logo && <StyledLogo />}
     <NavList>
       <NavItems>About</NavItems>
       <NavItems>Careers</NavItems>
@@ -31,5 +38,13 @@ const Header = () => (
     </NavList>
   </Nav>
 );
+
+Header.defaultProps = {
+  logo: false,
+};
+
+Header.propTypes = {
+  logo: PropTypes.bool,
+};
 
 export default Header;

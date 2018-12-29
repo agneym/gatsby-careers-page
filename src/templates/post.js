@@ -20,9 +20,9 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  margin: 2rem;
   padding: 2rem;
-  width: 50%;
+  margin-right: 3rem;
+  width: 48%;
   text-align: justify;
   background-color: #ffffff;
 
@@ -32,10 +32,10 @@ const Content = styled.div`
   }
 `;
 
-const Post = ({ data }) => {
+const Post = ({ location, data }) => {
   const post = data.markdownRemark;
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title={post.frontmatter.title} />
       <header
         css={`
