@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: space-between;
   min-height: calc(100vh - 6rem);
   align-items: flex-end;
-  margin: 1rem 5rem;
+  padding: 1rem 5rem;
   flex: 0.5;
   background-color: #ffffff;
 `;

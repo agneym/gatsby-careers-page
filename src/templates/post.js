@@ -12,6 +12,7 @@ const Title = styled.h1`
   font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 0;
+  padding-bottom: 8rem;
 `;
 
 const Container = styled.div`
