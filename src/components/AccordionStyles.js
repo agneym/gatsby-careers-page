@@ -7,6 +7,8 @@ import {
 } from 'react-accessible-accordion';
 import { Link } from 'gatsby';
 
+import media from '../utils/media';
+
 export const Accordion = styled(AccordionComponent)`
   .accordion__body {
     max-height: 100%;
@@ -37,6 +39,11 @@ export const JobPost = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${media.phone`
+    flex-direction: column;
+    justify-content: center;
+  `}
 `;
 
 export const JobDescription = styled.div`
