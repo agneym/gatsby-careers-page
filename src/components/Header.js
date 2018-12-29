@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import NakedList from '../utils/NakedList';
 import Logo from '../images/logo.svg';
+import media from '../utils/media';
 
 const Nav = styled.nav`
   display: flex;
@@ -13,10 +14,18 @@ const Nav = styled.nav`
   padding: 0 4rem;
   height: 6rem;
   background-color: #ffffff;
+
+  ${media.tablet`
+    justify-content: center;
+  `}
 `;
 
 const NavList = styled(NakedList)`
   display: flex;
+
+  ${media.tablet`
+    display: none;
+  `}
 `;
 
 const NavItems = styled.li`
