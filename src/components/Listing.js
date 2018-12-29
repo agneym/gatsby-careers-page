@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+import Accordion from './Accordion';
 
 const Container = styled.section`
   background-color: #fcfcfc;
@@ -23,11 +26,22 @@ const Content = styled.div`
   height: 100%;
 `;
 
-const Listing = () => (
+const Listing = ({ data }) => (
   <Container>
     <Title>Find your Spot</Title>
-    <Content />
+    <Content>
+      <Accordion data={data} />
+    </Content>
   </Container>
 );
+
+Listing.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      fieldValue: PropTypes.string.isRequired,
+      totalCount: PropTypes.number.isRequired,
+    })
+  ),
+};
 
 export default Listing;
