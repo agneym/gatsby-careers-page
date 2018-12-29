@@ -1,8 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+
 import Layout from '../components/Layout';
 import Form from '../components/Form';
+import SEO from '../components/seo';
 
 const Title = styled.h1`
   font-size: 2.5rem;
@@ -34,6 +36,7 @@ const Post = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
+      <SEO title={post.frontmatter.title} />
       <header
         css={`
           text-align: center;

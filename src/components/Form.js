@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import FileUpload from './FileUpload';
+
 const Container = styled.section`
   background-color: #ffffff;
   width: 50%;
@@ -39,6 +41,20 @@ const TextArea = styled.textarea`
   ${Field}
 `;
 
+const SubmitButton = styled.button`
+  background-color: #001dfb;
+  color: #ffffff;
+  padding: 1.2rem;
+  cursor: pointer;
+  width: 20rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border: 0;
+  box-shadow: none;
+  margin: 4rem auto;
+  display: block;
+`;
+
 const Form = () => (
   <Container>
     <h2
@@ -68,11 +84,12 @@ const Form = () => (
         <label htmlFor="notice-period">Notice Period</label>
         <Input name="notice-period" id="notice-period" type="number" />
       </FormField>
+      <FileUpload />
       <FormField>
         <label htmlFor="cover-letter">Cover Letter</label>
         <TextArea name="cover-letter" rows="8" />
       </FormField>
-      <button>Submit</button>
+      <SubmitButton type="submit">Apply</SubmitButton>
     </form>
   </Container>
 );
