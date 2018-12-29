@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import NakedList from "../utils/NakedList";
+import NakedList from '../utils/NakedList';
 
 const Nav = styled.nav`
   display: flex;
@@ -9,6 +9,7 @@ const Nav = styled.nav`
   align-items: center;
   padding: 0 4rem;
   height: 6rem;
+  background-color: #ffffff;
 `;
 
 const NavList = styled(NakedList)`

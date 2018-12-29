@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import Header from "./Header";
+import Header from './Header';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-size: 1.6rem;
     color: rgba(0, 0, 0, 0.7);
+    background-color: #fcfcfc;
   }
 `;
 
@@ -39,10 +40,10 @@ const Layout = ({ children }) => (
       </>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
