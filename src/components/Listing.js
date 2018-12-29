@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import Accordion from './Accordion';
+import media from '../utils/media';
 
 const Container = styled.section`
   background-color: #fcfcfc;
@@ -24,6 +25,10 @@ const Content = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   height: 100%;
+
+  ${media.tablet`
+    width: 100%;
+  `}
 `;
 
 const Listing = ({ data }) => (
