@@ -4,6 +4,9 @@ import { StaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    font-size: 10px;
+  }
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
