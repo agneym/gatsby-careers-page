@@ -6,15 +6,28 @@ import {
   AccordionItem,
   AccordionItemTitle,
   AccordionItemBody,
+  JobPost,
+  JobDescription,
+  JobButton,
 } from './AccordionStyles';
 
-const DeptTitle = styled.h3`
-  text-transform: uppercase;
-  font-weight: 500;
+const Title = `
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 2rem;
+`;
+
+const DeptTitle = styled.h3`
+  ${Title}
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  font-weight: 500;
+`;
+
+const JobTitle = styled.h4`
+  ${Title}
+  text-transform: capitalize;
+  font-weight: 500;
 `;
 
 const OpenPosts = styled.span`
@@ -22,33 +35,55 @@ const OpenPosts = styled.span`
   font-size: 1.4rem;
 `;
 
-const StyledAccordionItemTitle = styled(AccordionItemTitle)`
-  cursor: pointer;
-`;
-
-const Accordion = ({ data }) => (
-  <AccordionComponent>
-    {data.map(item => (
-      <AccordionItem key={item.fieldValue}>
-        <StyledAccordionItemTitle>
-          <DeptTitle>
-            <span>{item.fieldValue}</span>
-            <OpenPosts>{item.totalCount} OPEN POSITIONS &nbsp; ></OpenPosts>
-          </DeptTitle>
-        </StyledAccordionItemTitle>
-        <AccordionItemBody>
-          <p>Content</p>
-        </AccordionItemBody>
-      </AccordionItem>
-    ))}
-  </AccordionComponent>
-);
+const Accordion = ({ data }) =>
+  console.log(data) || (
+    <AccordionComponent>
+      {data.map(item => (
+        <AccordionItem key={item.fieldValue}>
+          <AccordionItemTitle>
+            <DeptTitle>
+              <span>{item.fieldValue}</span>
+              <OpenPosts>
+                <span>{item.totalCount}&nbsp;</span>
+                <span>OPEN POSITION{item.totalCount > 1 && 'S'} &nbsp; ></span>
+              </OpenPosts>
+            </DeptTitle>
+          </AccordionItemTitle>
+          <AccordionItemBody>
+            {item.edges.map(({ node }) => (
+              <JobPost key={node.frontmatter.title}>
+                <JobDescription>
+                  <JobTitle>{node.frontmatter.title}</JobTitle>
+                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                </JobDescription>
+                <JobButton to={node.fields.slug}>Apply</JobButton>
+              </JobPost>
+            ))}
+          </AccordionItemBody>
+        </AccordionItem>
+      ))}
+    </AccordionComponent>
+  );
 
 Accordion.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       fieldValue: PropTypes.string.isRequired,
       totalCount: PropTypes.number.isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            excerpt: PropTypes.string.isRequired,
+            fields: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+            }).isRequired,
+            frontmatter: PropTypes.shape({
+              date: PropTypes.string.isRequired,
+              title: PropTypes.string.isRequired,
+            }).isRequired,
+          }).isRequired,
+        }).isRequired
+      ).isRequired,
     })
   ),
 };
