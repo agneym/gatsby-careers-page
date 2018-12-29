@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
+import Footer from './Footer';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -33,9 +34,7 @@ const Layout = ({ location, children }) => (
       <>
         <Header logo={!!location} />
         {children}
-        <footer>
-          © 2018, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
         <GlobalStyles />
       </>
     )}
