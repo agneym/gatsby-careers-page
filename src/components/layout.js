@@ -1,6 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby';
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+  }
+`;
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -20,6 +28,7 @@ const Layout = ({ children }) => (
           <footer>
             © 2018, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
           </footer>
+          <GlobalStyles />
         </div>
       </>
     )}
