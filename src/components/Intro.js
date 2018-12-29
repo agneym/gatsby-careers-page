@@ -20,8 +20,8 @@ const Content = styled.div`
 `;
 
 const ActionButton = styled.button`
-  background-color: #FF4133;
-  color: #FFFFFF;
+  background-color: #ff4133;
+  color: #ffffff;
   padding: 1.2rem;
   cursor: pointer;
   width: 20rem;
@@ -30,7 +30,7 @@ const ActionButton = styled.button`
   border: 0;
   box-shadow: none;
   font-weight: 500;
-  margin-top: 10rem;
+  margin-top: 12rem;
 `;
 
 const Intro = () => (
@@ -45,4 +45,3 @@ const Intro = () => (
 );
 
 export default Intro;
-
