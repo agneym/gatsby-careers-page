@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import GraphicsEl from '../images/graphics.svg';
 import Logo from '../images/logo.svg';
+import media from '../utils/media';
 
 const Container = styled.div`
   display: flex;
@@ -12,6 +13,17 @@ const Container = styled.div`
   padding: 1rem 5rem;
   flex: 0.5;
   background-color: #ffffff;
+
+  ${media.tablet`
+    padding: 1rem 2rem;
+    min-height: calc(80vh - 6rem);
+  `}
+`;
+
+const Presentation = styled.div`
+  ${media.phone`
+    display: none;
+  `}
 `;
 
 const Content = styled.div`
@@ -32,11 +44,17 @@ const ActionButton = styled.button`
   box-shadow: none;
   font-weight: 500;
   margin-top: 12rem;
+
+  ${media.phone`
+    margin-top: 4rem;
+  `}
 `;
 
 const Intro = () => (
   <Container>
-    <GraphicsEl />
+    <Presentation>
+      <GraphicsEl />
+    </Presentation>
     <Content>
       <Logo />
       <p>Change the World. One Step at a Time.</p>
