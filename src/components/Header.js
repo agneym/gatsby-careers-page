@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import NakedList from '../utils/NakedList';
@@ -30,7 +31,11 @@ const StyledLogo = styled(Logo)`
 
 const Header = ({ logo }) => (
   <Nav logo={logo}>
-    {logo && <StyledLogo />}
+    {logo && (
+      <Link to={'/'}>
+        <StyledLogo />
+      </Link>
+    )}
     <NavList>
       <NavItems>About</NavItems>
       <NavItems>Careers</NavItems>

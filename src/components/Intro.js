@@ -11,6 +11,7 @@ const Container = styled.div`
   align-items: flex-end;
   margin: 1rem 5rem;
   flex: 0.5;
+  background-color: #ffffff;
 `;
 
 const Content = styled.div`
